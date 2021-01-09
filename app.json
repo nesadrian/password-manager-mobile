@@ -1,0 +1,12 @@
+{
+  "name": "password-manager-mobile",
+  "displayName": "password-manager-mobile",
+  "expo": {
+    "name": "password-manager-mobile",
+    "slug": "password-manager-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
