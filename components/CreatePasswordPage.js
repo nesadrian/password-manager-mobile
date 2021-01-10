@@ -1,15 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 
-export default function PasswordsPage() {
+export default function CreatePasswordPage() {
     return (
         <View style={styles.container}>
-            <Text>Password Page</Text>
+            <Text>Create Password Page</Text>
         </View>
     );
 }
-
 
 const styles = StyleSheet.create({
     container: {
