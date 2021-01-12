@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView , Button} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import TextInputBox from './TextInputBox'
 
@@ -9,6 +9,10 @@ export default function AddPasswordPage() {
             <Text style={styles.title}>Add Password</Text>
             <TextInputBox label="Name" />
             <TextInputBox label="Password" />
+            <Button 
+                title="Submit"
+                color="#2196f3"
+            />
         </ScrollView>
     );
 }
