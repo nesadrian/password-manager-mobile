@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, ScrollView , Button} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import TextInputBox from './TextInputBox'
@@ -6,9 +6,15 @@ import TextInputBox from './TextInputBox'
 export default function AddPasswordPage() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState(undefined)
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = async () => {
+        const isDuplicateName = await SecureStore.getItemAsync(name)
+        if(!isDuplicateName) {
+            SecureStore.setItemAsync(name, password)
+        } else {
+            setErrorMessage('Name already exists')
+        }
     }
 
     return (
@@ -22,6 +28,7 @@ export default function AddPasswordPage() {
                 onPress={handleSubmit}
                 disabled={name === '' || password === ''}
             />
+            {errorMessage && <Text>{errorMessage}</Text>}
         </ScrollView>
     );
 }
