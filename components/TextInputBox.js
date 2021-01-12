@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View, Keyboard } from 'react-native';
 
 export default function TextInputBox({ label }) {
   const [text, setText] = useState('');
@@ -11,6 +11,7 @@ export default function TextInputBox({ label }) {
         onChangeText={text => setText(text)}
         value={text}
         placeholder={label}
+        onBlur={Keyboard.dismiss}
       />
     </View>
   );
@@ -27,6 +28,8 @@ const styles = StyleSheet.create({
   input: {
     height: '100%',
     width: '100%',
-    fontSize: 20
+    fontSize: 20,
+    borderColor: '#CCCCCC',
+    borderBottomWidth: 1,
   }
 });
