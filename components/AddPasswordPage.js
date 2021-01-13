@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, ScrollView , Button} from 'react-native';
-import * as SecureStore from 'expo-secure-store';
 import TextInputBox from './TextInputBox'
-import { isDuplicate } from '../helpers'
+import { isDuplicate, addPassword } from '../helpers'
 
 export default function AddPasswordPage() {
     const [name, setName] = useState('')
@@ -10,10 +9,10 @@ export default function AddPasswordPage() {
     const [errorMessage, setErrorMessage] = useState(undefined)
 
     const handleSubmit = async () => {
-        if(!isDuplicate(name)) {
-            SecureStore.setItemAsync(name, password)
-        } else {
+        if(await isDuplicate(name)) {
             setErrorMessage('Name already exists')
+        } else {
+            addPassword(name, password)
         }
     }
 
