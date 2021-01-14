@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import ErrorPage from './ErrorPage'
+import Password from './Password'
 import { getAllPasswords } from '../helpers'
 
 export default function PasswordsPage() {
@@ -32,7 +33,7 @@ export default function PasswordsPage() {
             <Text>Password Page</Text>
             {passwords === []
                 ? <Text>No passwords added</Text>
-                : passwords.map(password => <Text>{password.name}, {password.password}</Text>)
+                : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} />)
             }
         </View>
     );
