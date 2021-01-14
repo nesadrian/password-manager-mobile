@@ -4,6 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import ErrorPage from './ErrorPage'
 import Password from './Password'
 import { getAllPasswords } from '../helpers'
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PasswordsPage() {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
@@ -31,10 +32,12 @@ export default function PasswordsPage() {
     return (
         <View style={styles.container}>
             <Text>Password Page</Text>
-            {passwords === []
-                ? <Text>No passwords added</Text>
-                : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} />)
-            }
+            <ScrollView style={styles.listContainer}>
+                {passwords === []
+                    ? <Text>No passwords added</Text>
+                    : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} />)
+                }
+            </ScrollView>
         </View>
     );
 }
@@ -46,4 +49,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    listContainer: {
+        width: '100%'
+    }
 });
