@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function PasswordsPage({ name, password }) {
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.password}>{'•'.repeat(password.length)}</Text>
+            <Button style={styles.button} title="Show" />
         </View>
     );
 }
@@ -19,7 +20,6 @@ const styles = StyleSheet.create({
         borderColor: '#CCCCCC',
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'flex-start',
         padding: 20
     },
     name: {
@@ -28,5 +28,8 @@ const styles = StyleSheet.create({
     password: {
       fontSize: 45,
       letterSpacing: -8,
+    },
+    button: {
+      marginLeft: 'auto'
     }
 });
