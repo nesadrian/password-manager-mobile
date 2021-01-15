@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function PasswordsPage({ name, password }) {
     return (
         <View style={styles.container}>
-            <Text>{name} {password}</Text>
+            <Text>{name}</Text>
+            <Text>{'•'.repeat(password.length)}</Text>
         </View>
     );
 }
