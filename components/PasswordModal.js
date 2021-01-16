@@ -1,7 +1,10 @@
-import React from 'react'
-import { StyleSheet, Text, View, Modal } from 'react-native';
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Modal, Button } from 'react-native';
 
-export default function PasswordModal() {
+export default function PasswordModal({ name, password }) {
+  const [showPassword, setShowPassword] = useState(false)
+
+
   return (
     <Modal 
       animationType="slide"
@@ -9,7 +12,9 @@ export default function PasswordModal() {
       visible={true}
     >
       <View style={styles.popup}>
-          <Text>Test</Text>
+          <Text>{name}</Text>
+          <Text>{showPassword ? password : '•'.repeat(password.length)}</Text>
+          <Button title={(showPassword ? 'Hide' : 'Show')} onPress={() => setShowPassword(!showPassword)} />
       </View>
     </Modal>
   )

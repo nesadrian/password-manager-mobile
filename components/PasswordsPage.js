@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, Modal } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import ErrorPage from './ErrorPage'
 import Password from './Password'
-import PassowrdModal from './PasswordModal'
+import PasswordModal from './PasswordModal'
 import { getAllPasswords } from '../helpers'
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function PasswordsPage() {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
@@ -34,7 +34,7 @@ export default function PasswordsPage() {
     return (
         <View style={styles.container}>
             {clickedPassword && 
-                <PassowrdModal />
+                <PasswordModal name={clickedPassword.name} password={clickedPassword.password} />
             }
             <Text>Password Page</Text>
             <ScrollView style={styles.listContainer}>
