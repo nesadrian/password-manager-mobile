@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
-export default function PasswordsPage({ name, password }) {
+export default function PasswordsPage({ name, password, handleClick }) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.name}>{name}</Text>
-            <Text style={styles.password}>{'•'.repeat(password.length)}</Text>
-            <Button style={styles.button} title="Show" />
-        </View>
+      <TouchableOpacity onPress={handleClick}>
+          <View style={styles.container} onP>
+              <Text style={styles.name}>{name}</Text>
+              <Text style={styles.password}>{'•'.repeat(password.length)}</Text>
+              {/*<Button style={styles.button} title="Show" />*/}
+          </View>
+      </TouchableOpacity>
     );
 }
 

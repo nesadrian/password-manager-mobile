@@ -10,7 +10,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function PasswordsPage() {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
     const [passwords, setPasswords] = useState()
-    const [clickedPassword, setClickedPassword] = useState('ds')
+    const [clickedPassword, setClickedPassword] = useState()
 
     useEffect(() => {
         (async () => {
@@ -40,7 +40,7 @@ export default function PasswordsPage() {
             <ScrollView style={styles.listContainer}>
                 {passwords === []
                     ? <Text>No passwords added</Text>
-                    : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} />)
+                    : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} handleClick={() => setClickedPassword(password)} />)
                 }
             </ScrollView>
         </View>
