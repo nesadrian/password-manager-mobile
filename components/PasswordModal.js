@@ -4,19 +4,16 @@ import { StyleSheet, Text, View, Modal, Button, TouchableOpacity, TouchableWitho
 export default function PasswordModal({ name, password, handleClickOutside }) {
   const [showPassword, setShowPassword] = useState(false)
 
-
   return (
-    <Modal 
-      animationType="slide"
-      transparent={true}
-      visible={true}
-    >
+    <Modal animationType="slide" transparent={true} visible={true}>
       <TouchableOpacity onPress={handleClickOutside}>
         <View style={styles.container}>
           <TouchableWithoutFeedback>
             <View style={styles.popup}>
                 <Text style={styles.name}>{name}</Text>
-                <Text style={showPassword ? styles.password : styles.passwordHidden}>{showPassword ? password : '•'.repeat(password.length)}</Text>
+                <Text style={showPassword ? styles.password : styles.passwordHidden}>
+                  {showPassword ? password : '•'.repeat(password.length)}
+                </Text>
                 <Button title={(showPassword ? 'Hide' : 'Show')} onPress={() => setShowPassword(!showPassword)} />
             </View>
           </TouchableWithoutFeedback>

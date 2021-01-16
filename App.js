@@ -4,6 +4,6 @@ import AddPasswordPage from './components/AddPasswordPage'
 
 export default function App() {
   return (
-    <PasswordsPage />
+    <AddPasswordPage />
   );
 }
