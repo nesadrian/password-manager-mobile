@@ -6,6 +6,7 @@ import Password from './Password'
 import PasswordModal from './PasswordModal'
 import { getAllPasswords } from '../helpers'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { BlurView } from 'expo-blur';
 
 export default function PasswordsPage() {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
@@ -33,9 +34,6 @@ export default function PasswordsPage() {
 
     return (
         <View style={styles.container}>
-            {clickedPassword && 
-                <PasswordModal name={clickedPassword.name} password={clickedPassword.password} />
-            }
             <Text>Password Page</Text>
             <ScrollView style={styles.listContainer}>
                 {passwords === []
@@ -43,6 +41,11 @@ export default function PasswordsPage() {
                     : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} handleClick={() => setClickedPassword(password)} />)
                 }
             </ScrollView>
+            {clickedPassword && 
+                <BlurView intensity={80} style={[StyleSheet.absoluteFill, styles.nonBlurredContent]}>
+                    <PasswordModal name={clickedPassword.name} password={clickedPassword.password} />
+                </BlurView>
+            }
         </View>
     );
 }
