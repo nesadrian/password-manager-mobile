@@ -33,7 +33,6 @@ export default function PasswordsPage() {
 
     return (
         <View style={styles.container}>
-                <Text>Password Page</Text>
                 <ScrollView style={styles.listContainer}>
                     {passwords === []
                         ? <Text>No passwords added</Text>
