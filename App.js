@@ -9,9 +9,9 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerBackTitle: 'Back' }}>
         <Stack.Screen name="Passwords" component={PasswordsPage} />
-        <Stack.Screen name="Add Password" component={AddPasswordPage} />
+        <Stack.Screen name="Add Password" component={AddPasswordPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
