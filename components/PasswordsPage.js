@@ -11,6 +11,7 @@ export default function PasswordsPage({ navigation }) {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
     const [passwords, setPasswords] = useState()
     const [clickedPassword, setClickedPassword] = useState()
+    const [isEditing, setIsEditing] = useState(false)
 
     useEffect(() => {
         (async () => {
@@ -35,7 +36,7 @@ export default function PasswordsPage({ navigation }) {
         <View style={styles.container}>
                 <View style={styles.header}>
                     <Button title="Sort" />
-                    <Button title="Edit" />
+                    <Button title="Edit" onPress={() => setIsEditing(!isEditing)}/>
                     <Button title="Add" onPress={() => navigation.navigate('Add Password')}/>
                 </View>
                 <ScrollView style={styles.listContainer}>
