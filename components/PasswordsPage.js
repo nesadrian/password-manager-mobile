@@ -42,7 +42,7 @@ export default function PasswordsPage({ navigation }) {
                 <ScrollView style={styles.listContainer}>
                     {passwords === []
                         ? <Text>No passwords added</Text>
-                        : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} handleClick={() => setClickedPassword(password)} />)
+                        : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} handleClick={() => setClickedPassword(password)} isEditing={isEditing}/>)
                     }
                 </ScrollView>
             {clickedPassword &&
