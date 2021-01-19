@@ -20,3 +20,8 @@ export const isDuplicate = async name => {
    return passwords.some(ele => ele.name === name)
 }
 
+export const deletePassword = async name => {
+  let passwords = await getAllPasswords()
+  passwords = passwords.filter(password => password.name !== name)
+  SecureStore.setItemAsync('passwords', JSON.stringify(passwords))
+}
