@@ -9,7 +9,9 @@ export default function AddPasswordPage({ navigation }) {
     const [errorMessage, setErrorMessage] = useState(undefined)
 
     const handleSubmit = async () => {
-        if(await isDuplicate(name)) {
+        if(name.trim() === '' || password.trim() === '') {
+            setErrorMessage('Invalid input')
+        } else if(await isDuplicate(name)) {
             setErrorMessage('Name already exists')
         } else {
             await addPassword(name, password)
