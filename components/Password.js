@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import { deletePassword } from '../helpers'
 
-export default function PasswordsPage({ name, password, handleClick, isEditing }) {
+export default function PasswordsPage({ name, password, isEditing, handleClick, handleClickDelete }) {
 
-    const handleClickDelete = async () => {
+    const handleClickDeleteButton = async () => {
       //TODO: Add confirmation prompt
-      deletePassword(name)
+      handleClickDelete(name)
     }
 
     return (
@@ -14,7 +13,7 @@ export default function PasswordsPage({ name, password, handleClick, isEditing }
           <View style={styles.container} onP>
               <Text style={styles.name}>{name}</Text>
               {/*<Text style={styles.password}>{'•'.repeat(password.length)}</Text>*/}
-              {isEditing && <Button title="Delete" onPress={handleClickDelete} />}
+              {isEditing && <Button title="Delete" onPress={handleClickDeleteButton} />}
           </View>
       </TouchableOpacity>
     );

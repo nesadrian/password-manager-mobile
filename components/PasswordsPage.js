@@ -4,7 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import ErrorPage from './ErrorPage'
 import Password from './Password'
 import PasswordModal from './PasswordModal'
-import { getAllPasswords } from '../helpers'
+import { getAllPasswords, deletePassword } from '../helpers'
 import { BlurView } from 'expo-blur';
 
 export default function PasswordsPage({ navigation }) {
@@ -13,16 +13,22 @@ export default function PasswordsPage({ navigation }) {
     const [clickedPassword, setClickedPassword] = useState()
     const [isEditing, setIsEditing] = useState(false)
 
+    const getPasswords = async () => setPasswords(await getAllPasswords())
+
+    const handleClickDelete = async name => {
+        await deletePassword(name)
+        getPasswords()
+    }
+
     useEffect(() => {
         (async () => {
             const isAvailable = await SecureStore.isAvailableAsync()
             setSecureStoreAvailable(isAvailable)
             if(isAvailable) {
-                const passwords = await getAllPasswords()
-                setPasswords(passwords)
+                getPasswords()
             }
         })();
-    }, [])
+    }, [passwords])
 
     if(!secureStoreAvailable) {
         return <ErrorPage message="Device not compatible" />
@@ -42,7 +48,7 @@ export default function PasswordsPage({ navigation }) {
                 <ScrollView style={styles.listContainer}>
                     {passwords === []
                         ? <Text>No passwords added</Text>
-                        : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} handleClick={() => setClickedPassword(password)} isEditing={isEditing}/>)
+                        : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} isEditing={isEditing} handleClick={() => setClickedPassword(password)} handleClickDelete={handleClickDelete}/>)
                     }
                 </ScrollView>
             {clickedPassword &&
