@@ -6,6 +6,7 @@ import Password from './Password'
 import PasswordModal from './PasswordModal'
 import { getAllPasswords, deletePassword } from '../helpers'
 import { BlurView } from 'expo-blur';
+import { useIsFocused } from '@react-navigation/native'
 
 export default function PasswordsPage({ navigation }) {
     const [secureStoreAvailable, setSecureStoreAvailable] = useState()
@@ -13,6 +14,8 @@ export default function PasswordsPage({ navigation }) {
     const [clickedPassword, setClickedPassword] = useState()
     const [isEditing, setIsEditing] = useState(false)
 
+    const isFocused = useIsFocused()
+    
     const getPasswords = async () => setPasswords(await getAllPasswords())
 
     const handleClickDelete = async name => {
@@ -25,10 +28,11 @@ export default function PasswordsPage({ navigation }) {
             const isAvailable = await SecureStore.isAvailableAsync()
             setSecureStoreAvailable(isAvailable)
             if(isAvailable) {
+                setIsEditing(false)
                 getPasswords()
             }
         })();
-    }, [passwords])
+    }, [isFocused])
 
     if(!secureStoreAvailable) {
         return <ErrorPage message="Device not compatible" />
