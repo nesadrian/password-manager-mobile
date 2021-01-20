@@ -3,7 +3,7 @@ import { StyleSheet, Text, ScrollView , Button} from 'react-native';
 import TextInputBox from './TextInputBox'
 import { isDuplicate, addPassword } from '../helpers'
 
-export default function AddPasswordPage() {
+export default function AddPasswordPage({ navigation }) {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState(undefined)
@@ -12,7 +12,8 @@ export default function AddPasswordPage() {
         if(await isDuplicate(name)) {
             setErrorMessage('Name already exists')
         } else {
-            addPassword(name, password)
+            await addPassword(name, password)
+            navigation.goBack(null)
         }
     }
 
