@@ -20,8 +20,8 @@ export default function AddPasswordPage({ navigation }) {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.title}>Add Password</Text>
-            <TextInputBox label="Name" onChangeText={(text) => setName(text)} />
-            <TextInputBox label="Password" onChangeText={(text) => setPassword(text)} />
+            <TextInputBox label="Name" onChangeText={(text) => setName(text)} handleSubmit={handleSubmit} />
+            <TextInputBox label="Password" onChangeText={(text) => setPassword(text)} handleSubmit={handleSubmit} />
             <Button 
                 title="Submit"
                 color="#2196f3"

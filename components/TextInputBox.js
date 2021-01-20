@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableWithoutFeedback } from 'react-native';
 
-export default function TextInputBox({ label, onChangeText }) {
+export default function TextInputBox({ label, onChangeText, handleSubmit }) {
   const [text, setText] = useState('');
 
   return (
@@ -15,6 +15,7 @@ export default function TextInputBox({ label, onChangeText }) {
           }}
           value={text}
           placeholder={label}
+          onSubmitEditing={handleSubmit}
         />
       </TouchableWithoutFeedback>
     </View>
