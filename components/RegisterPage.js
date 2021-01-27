@@ -2,19 +2,16 @@ import React from 'react';
 import { View } from 'react-native'
 import CodePin from 'react-native-pin-code'
 import styles from '../styles'
+import { setPin } from '../helpers'
 
-export default function RegisterPage() {
-  const handleSubmit = pin => {
-    
-  }
-
+export default function RegisterPage({ navigation }) {
   return (
     <View>
       <CodePin
         text="Enter PIN code"
         checkPinCode={(pin, callback) => {
-          handleSubmit(pin)
-          callback(true)
+          setPin(pin)
+          navigation.navigate('Passwords')
         }}
         autoFocusFirst={true}
         containerStyle={styles.pinContainer}
