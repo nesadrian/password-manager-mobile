@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   pinContainer: {
-    height: '100%',
+    height: '90%',
     width: '100%',
   },
   pinNumberContainer: {
