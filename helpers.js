@@ -25,3 +25,7 @@ export const deletePassword = async name => {
   passwords = passwords.filter(password => password.name !== name)
   SecureStore.setItemAsync('passwords', JSON.stringify(passwords))
 }
+
+export const setPin = async pin => SecureStore.setItemAsync('pin', pin)
+
+export const getPin = async () => SecureStore.getItemAsync('pin')
