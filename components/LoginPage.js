@@ -7,9 +7,11 @@ import { getPin } from '../helpers'
 export default function LoginPage({ navigation }) {
   const [pin, setPin] = useState(undefined)
 
-  useEffect(async () => {
-    const pinCode = await getPin()
-    pinCode ? setPin(pinCode) : navigation.navigate('Register PIN')
+  useEffect(() => {
+    (async () => {
+      const pinCode = await getPin()
+      pinCode ? setPin(pinCode) : navigation.navigate('Register PIN')
+    })();
   }, [])
 
   return (
@@ -19,6 +21,7 @@ export default function LoginPage({ navigation }) {
           code={pin}
           text="Enter PIN code"
           error="Wrong PIN code"
+          sucess={() => navigation.navigate('Passwords')}
           autoFocusFirst={true}
           containerStyle={styles.pinContainer}
           containerPinStyle={styles.pinNumberContainer}
