@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, ScrollView , Button} from 'react-native';
+import { View, StyleSheet, Text, ScrollView , Button, KeyboardAvoidingView } from 'react-native';
 import TextInputBox from './TextInputBox'
 import { isDuplicate, addPassword } from '../helpers'
 
@@ -20,24 +20,28 @@ export default function AddPasswordPage({ navigation }) {
     }
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}>Add Password</Text>
-            <TextInputBox label="Name" onChangeText={(text) => setName(text)} handleSubmit={handleSubmit} />
-            <TextInputBox label="Password" onChangeText={(text) => setPassword(text)} handleSubmit={handleSubmit} />
-            <Button 
-                title="Submit"
-                color="#2196f3"
-                onPress={handleSubmit}
-                disabled={name === '' || password === ''}
-            />
-            {errorMessage && <Text>{errorMessage}</Text>}
-        </ScrollView>
+        <KeyboardAvoidingView behavior="padding">
+            <ScrollView contentContainerStyle={styles.container}>
+                <View>
+                    <Text style={styles.title}>Add Password</Text>
+                </View>
+                <TextInputBox label="Name" onChangeText={(text) => setName(text)} handleSubmit={handleSubmit} />
+                <TextInputBox label="Password" onChangeText={(text) => setPassword(text)} handleSubmit={handleSubmit} />
+                <Button 
+                    title="Submit"
+                    color="#2196f3"
+                    onPress={handleSubmit}
+                    disabled={name === '' || password === ''}
+                />
+                {errorMessage && <Text>{errorMessage}</Text>}
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flexGrow: 1,
+        height: '100%',
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',

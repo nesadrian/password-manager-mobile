@@ -7,10 +7,11 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
     backgroundColor: mainColorBackground,
+    justifyContent: 'center',
+    alignItems: 'center'
   }, 
   pinContainer: {
     width: '100%',
-    marginTop: 100
   },
   pinNumberContainer: {
     width: '100%',
