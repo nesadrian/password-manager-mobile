@@ -23,6 +23,7 @@ export default function LoginPage({ navigation }) {
           error="Wrong PIN code"
           success={() => navigation.navigate('Passwords')}
           autoFocusFirst={true}
+          obfuscation={true}
           containerStyle={styles.pinContainer}
           containerPinStyle={styles.pinNumberContainer}
           pinStyle={styles.pin}
