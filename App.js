@@ -14,7 +14,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerBackTitle: 'Back' }}>
         <Stack.Screen name="Login" component={LoginPage} options={{headerLeft: () => null}} />
         <Stack.Screen name="Register PIN" component={RegisterPage} options={{headerLeft: () => null}} />
-        <Stack.Screen name="Passwords" component={PasswordsPage} />
+        <Stack.Screen name="Passwords" component={PasswordsPage} options={{headerLeft: () => null}} />
         <Stack.Screen name="Add Password" component={AddPasswordPage}/>
       </Stack.Navigator>
     </NavigationContainer>
