@@ -6,7 +6,7 @@ import { setPin } from '../helpers'
 
 export default function RegisterPage({ navigation }) {
   return (
-    <View>
+    <View style={styles.pinPageContainer}>
       <CodePin
         text="Enter PIN code"
         checkPinCode={(pin, callback) => {

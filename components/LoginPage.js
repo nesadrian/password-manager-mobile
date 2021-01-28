@@ -15,7 +15,7 @@ export default function LoginPage({ navigation }) {
   }, [])
 
   return (
-    <View>
+    <View style={styles.pinPageContainer}>
       {pin ?
         <CodePin
           code={pin}
