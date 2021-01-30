@@ -50,8 +50,8 @@ export default function PasswordsPage({ navigation }) {
                     <Button title="Add" onPress={() => navigation.navigate('Add Password')}/>
                 </View>
                 <ScrollView style={styles.listContainer}>
-                    {passwords === []
-                        ? <Text>No passwords added</Text>
+                    {passwords[0] === undefined
+                        ? <Text style={styles.textEmptyList}>No passwords added</Text>
                         : passwords.map(password => <Password key={password.name} name={password.name} password={password.password} isEditing={isEditing} handleClick={() => setClickedPassword(password)} handleClickDelete={handleClickDelete}/>)
                     }
                 </ScrollView>
@@ -79,6 +79,12 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#CCCCCC',
         padding: 10
+    },
+    textEmptyList: {
+        fontSize: 35,
+        color: '#c9c9c9',
+        alignSelf:'center',
+        marginTop: '50%'
     },
     listContainer: {
         width: '100%'
