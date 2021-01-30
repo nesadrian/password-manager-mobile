@@ -5,6 +5,9 @@ import PasswordsPage from './components/PasswordsPage'
 import AddPasswordPage from './components/AddPasswordPage'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Button } from 'react-native'
+import SettingsPage from './components/SettingsPage'
+import SettingsButton from './components/SettingsButton'
 
 const Stack = createStackNavigator();
 
@@ -14,8 +17,12 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerBackTitle: 'Back' }}>
         <Stack.Screen name="Login" component={LoginPage} options={{headerLeft: () => null}} />
         <Stack.Screen name="Register PIN" component={RegisterPage} options={{headerLeft: () => null}} />
-        <Stack.Screen name="Passwords" component={PasswordsPage} options={{headerLeft: () => null}} />
+        <Stack.Screen name="Passwords" component={PasswordsPage} options={({ navigation }) => ({
+          headerLeft: () => null,
+          headerRight: () => <Button title="Settings" onPress={() => navigation.navigate("Settings")} />
+        })} />
         <Stack.Screen name="Add Password" component={AddPasswordPage}/>
+        <Stack.Screen name="Settings" component={SettingsPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
