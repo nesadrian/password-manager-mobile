@@ -7,7 +7,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native'
 import SettingsPage from './components/SettingsPage'
-import SettingsButton from './components/SettingsButton'
 
 const Stack = createStackNavigator();
 

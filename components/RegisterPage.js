@@ -7,7 +7,7 @@ import { setPin } from '../helpers'
 export default function RegisterPage({ navigation }) {
   return (
     <KeyboardAvoidingView behavior="padding">
-      <View style={styles.pinPageContainer}>
+      <View style={styles.pageContainer}>
         <CodePin
           text="Enter PIN code"
           checkPinCode={(pin, callback) => {

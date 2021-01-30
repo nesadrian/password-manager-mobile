@@ -16,7 +16,7 @@ export default function LoginPage({ navigation }) {
 
   return (
     <KeyboardAvoidingView behavior="padding">
-      <View style={styles.pinPageContainer}>
+      <View style={styles.pageContainer}>
         {pin ?
           <CodePin
             code={pin}

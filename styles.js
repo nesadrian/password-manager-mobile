@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const mainColorBackground = '#FFF'
 
 export default StyleSheet.create({
-  pinPageContainer: {
+  pageContainer: {
     height: '100%',
     width: '100%',
     backgroundColor: mainColorBackground,
