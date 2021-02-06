@@ -9,7 +9,12 @@ export default StyleSheet.create({
     backgroundColor: mainColorBackground,
     justifyContent: 'center',
     alignItems: 'center'
-  }, 
+  },
+  listContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+  },
   pinContainer: {
     width: '100%',
   },
