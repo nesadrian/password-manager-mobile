@@ -6,7 +6,7 @@ export default function SettingsPage({ navigation }) {
   return (
     <View style={styles.pageContainer}>
       <ScrollView style={styles.listContainer}>
-          <Button title="Change PIN" onPress={navigation.navigate('Change PIN')}/>
+          <Button title="Change PIN" onPress={() => navigation.navigate('Change PIN')}/>
       </ScrollView>
     </View>
   );

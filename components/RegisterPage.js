@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, KeyboardAvoidingView } from 'react-native'
 import CodePin from 'react-native-pin-code'
 import styles from '../styles'
-import { setPin } from '../helpers'
 
-export default function RegisterPage({ navigation }) {
+export default function RegisterPage() {
+  const { register } = useContext(AuthContext)
+
   return (
     <KeyboardAvoidingView behavior="padding">
       <View style={styles.pageContainer}>
         <CodePin
           text="Enter PIN code"
-          checkPinCode={(pin, callback) => {
-            setPin(pin)
-            navigation.navigate('Passwords')
-          }}
+          checkPinCode={async (pin, callback) => register(pin)}
           autoFocusFirst={true}
           containerStyle={styles.pinContainer}
           containerPinStyle={styles.pinNumberContainer}
