@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, KeyboardAvoidingView } from 'react-native'
-import CodePin from 'react-native-pin-code'
+import PinCode from './PinCode'
 import styles from '../styles'
 import { getPin } from '../helpers'
+import { AuthContext } from '../App'
 
 export default function LoginPage({ navigation }) {
   const [pin, setPin] = useState(undefined)
@@ -18,13 +19,11 @@ export default function LoginPage({ navigation }) {
     <KeyboardAvoidingView behavior="padding">
       <View style={styles.pageContainer}>
         {pin ?
-          <CodePin
+          <PinCode
             code={pin}
             text="Enter PIN code"
             error="Wrong PIN code"
-            success={() => logIn()}
-            autoFocusFirst={true}
-            obfuscation={true}
+            onSucess={() => logIn()}
             containerStyle={styles.pinContainer}
             containerPinStyle={styles.pinNumberContainer}
             pinStyle={styles.pin}

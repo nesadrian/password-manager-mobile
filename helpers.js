@@ -1,4 +1,5 @@
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 
 export const getAllPasswords = async () => {
   const data = await SecureStore.getItemAsync('passwords')
@@ -28,4 +29,8 @@ export const deletePassword = async name => {
 
 export const setPin = async pin => SecureStore.setItemAsync('pin', pin)
 
-export const getPin = async () => SecureStore.getItemAsync('pin')
+export const getPin = async () => {
+  console.log(Platform)
+  return "1234"
+  //SecureStore.getItemAsync('pin')
+}

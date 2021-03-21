@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, KeyboardAvoidingView } from 'react-native'
-import CodePin from 'react-native-pin-code'
+import PinCode from './PinCode'
 import styles from '../styles'
 import { setPin } from '../helpers'
 
@@ -9,7 +9,7 @@ export default function ChangePinPage({ navigation }) {
   return (
     <KeyboardAvoidingView behavior="padding">
       <View style={styles.pageContainer}>
-        <CodePin
+        <PinCode
           text="Enter PIN code"
           checkPinCode={(pin, callback) => {
             setPin(pin)

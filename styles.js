@@ -15,6 +15,35 @@ export default StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
   },
+
+  /* PIN */
+  pinButtonsContainer: {
+    alignItems: "center",
+    alignContent: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  pinButtonContainer: {    
+    marginBottom: 12,
+    width: "33%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  pinButton: {
+    width: 60,
+    height: 60,
+    borderRadius: "50%",
+    borderColor: "black",
+    borderStyle: 'solid',
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  pinButtonText: {
+    color: "#000",
+    fontSize: 22,
+    fontWeight: "bold",
+  },
   pinContainer: {
     width: '100%',
   },
@@ -25,6 +54,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 20
   },
+
   pin: {
     backgroundColor: '#F0F0F0',
     textAlign: 'center',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, createContext } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import RegisterPage from './components/RegisterPage'
 import LoginPage from './components/LoginPage'
 import PasswordsPage from './components/PasswordsPage'
@@ -11,7 +11,7 @@ import SettingsPage from './components/SettingsPage'
 import { getPin, setPin } from './helpers'
 
 const Stack = createStackNavigator();
-const AuthContext = createContext();
+export const AuthContext = React.createContext();
 
 export default function App() {
   const [isRegistered, setIsRegistered] = useState(undefined);
