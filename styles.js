@@ -1,12 +1,15 @@
 import { StyleSheet } from 'react-native'
 
-const mainColorBackground = '#FFF'
+export const colors = {
+  mainColorBackground: '#FFF',
+  darkGrey: '#606060'
+} 
 
-export default StyleSheet.create({
+export const styles = StyleSheet.create({
   pageContainer: {
     height: '100%',
     width: '100%',
-    backgroundColor: mainColorBackground,
+    backgroundColor: colors.mainColorBackground,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -22,6 +25,7 @@ export default StyleSheet.create({
     alignContent: "center",
     flexDirection: "row",
     flexWrap: "wrap",
+    width: "80%"
   },
   pinButtonContainer: {    
     marginBottom: 12,
@@ -32,7 +36,7 @@ export default StyleSheet.create({
   pinButton: {
     width: 60,
     height: 60,
-    borderRadius: "50%",
+    borderRadius: 50,
     borderColor: "black",
     borderStyle: 'solid',
     borderWidth: 1,
@@ -53,6 +57,14 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: 20
+  },
+  pinNumberDisplayContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    margin: 50
+  },
+  pinError: {
+    color: 'red'
   },
 
   pin: {

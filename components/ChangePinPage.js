@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, KeyboardAvoidingView } from 'react-native'
 import PinCode from './PinCode'
-import styles from '../styles'
+import { styles } from '../styles'
 import { setPin } from '../helpers'
 
 // TODO: refactor this and RegisterPage
@@ -11,15 +11,11 @@ export default function ChangePinPage({ navigation }) {
       <View style={styles.pageContainer}>
         <PinCode
           text="Enter PIN code"
-          checkPinCode={(pin, callback) => {
+          onSuccess={pin => {
             setPin(pin)
-            navigation.goBack(null)
+            navigation.goBack()
           }}
-          autoFocusFirst={true}
-          containerStyle={styles.pinContainer}
-          containerPinStyle={styles.pinNumberContainer}
-          pinStyle={styles.pin}
-          textStyle={styles.pinText}
+          length={4}
         />
       </View>
     </KeyboardAvoidingView>

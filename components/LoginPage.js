@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, KeyboardAvoidingView } from 'react-native'
 import PinCode from './PinCode'
-import styles from '../styles'
+import { styles } from '../styles'
 import { getPin } from '../helpers'
 import { AuthContext } from '../App'
 
@@ -22,12 +22,9 @@ export default function LoginPage({ navigation }) {
           <PinCode
             code={pin}
             text="Enter PIN code"
-            error="Wrong PIN code"
-            onSucess={() => logIn()}
-            containerStyle={styles.pinContainer}
-            containerPinStyle={styles.pinNumberContainer}
-            pinStyle={styles.pin}
-            textStyle={styles.pinText}
+            error={() => alert("Wrong PIN code, please try again")}
+            onSuccess={() => logIn()}
+            length={4}
           />
         : <Text>Loading</Text>
         }
